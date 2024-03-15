@@ -1,0 +1,6 @@
+//JANA IMAGE QRCODE
+function qrcode(link) {
+var qrlink = 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=' + encodeURIComponent(link);
+return qrlink;
+}
+
