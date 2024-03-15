@@ -1,0 +1,41 @@
+//HURUF ANGKA BM
+function hurufAngka(number) {
+if (number === 0) {
+return 'Kosong';
+}
+const units =['', 'Satu', 'Dua', 'Tiga', 'Empat', 'Lima', 'Enam', 'Tujuh', 'Lapan', 'Sembilan','Sepuluh'];
+const teens = ['', 'Sebelas', 'Dua Belas', 'Tiga Belas', 'Empat Belas', 'Lima Belas', 'Enam Belas', 'Tujuh Belas', 'Lapan Belas', 'Sembilan Belas'];
+const tens = ['', 'Sepuluh', 'Dua Puluh', 'Tiga Puluh', 'Empat Puluh', 'Lima Puluh', 'Enam Puluh', 'Tujuh Puluh', 'Lapan Puluh', 'Sembilan Puluh'];
+function convertLessThanOneThousand(num) {
+if (num === 0) {
+return '';
+} else if (num <= 10) {
+return units[num];
+} else if (num < 20) {
+return teens[num - 10];
+} else if (num < 100) {
+return tens[Math.floor(num / 10)] + ' ' + convertLessThanOneThousand(num % 10);
+} else {
+return units[Math.floor(num / 100)] + ' Ratus ' + convertLessThanOneThousand(num % 100);
+}
+}
+function convertChunk(num, chunkIndex) {
+if (num === 0) {
+return '';
+} else {
+return convertLessThanOneThousand(num) + (chunkIndex > 0 ? ' ' + getChunkLabel(chunkIndex) + ' ' : '');
+}
+}
+
+function getChunkLabel(chunkIndex) {
+const chunkLabels = ['', 'Ribu', 'Juta', 'Billion', 'Trillion'];
+return chunkLabels[chunkIndex];
+}
+const chunks = [];
+while (number > 0) {
+chunks.push(number % 1000);
+number = Math.floor(number / 1000);
+}
+const words = chunks.map((chunk, index) => convertChunk(chunk, index)).reverse();
+return words.join(' ').trim();
+}
