@@ -1,0 +1,14 @@
+//KIRA TEMPOH BERKHIDMAT
+/**
+* Calculate the period of service
+* @param {endDate} endDate
+* @param {startDate} dateService
+* @return The period 2 date
+* @customfunction
+*/
+function service(dateService) {
+var currentDate = new Date();
+var years = Math.floor((currentDate - dateService) / (1000 * 60 * 60 * 24 * 365));
+var months = Math.floor(((currentDate - dateService) % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44)); // Approximate number of days in a month
+return years + " Tahun " + months + " Bulan";
+}
