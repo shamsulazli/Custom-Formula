@@ -1,0 +1,15 @@
+//UMUR DARI TARIKH LAHIR
+function age(val) {
+var startDate = new Date(val);
+var currentDate = new Date();
+var yearDifference = currentDate.getFullYear() - startDate.getFullYear();
+if (
+currentDate.getMonth() < startDate.getMonth() ||
+(currentDate.getMonth() === startDate.getMonth() &&
+currentDate.getDate() < startDate.getDate())
+) {
+yearDifference--;
+}
+return yearDifference;
+}
+
