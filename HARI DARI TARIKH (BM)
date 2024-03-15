@@ -1,0 +1,9 @@
+
+//HARI DARI TARIKH (BM)
+function hari(d) {
+const ta = new Date(d);
+const day = ta.getDate();
+
+const hari = ['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'][ta.getDay()];
+return hari;
+}
