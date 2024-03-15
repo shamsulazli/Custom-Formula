@@ -1,0 +1,8 @@
+//FORMULA DATE FULL (BM)
+function tarikhbm(t) {
+const ta = new Date(t);
+const day = Utilities.formatDate(ta,"GMT+8","dd");
+const year = ta.getFullYear();
+const month = ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai", "Ogos", "September", "Oktober", "November", "Disember"][ta.getMonth()];
+return day + " " + month + " " + year;
+}
