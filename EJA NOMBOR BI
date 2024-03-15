@@ -1,0 +1,19 @@
+//EJA NOMBOR BI
+function spellNum(nilai){
+if (typeof nilai !== 'number') {
+throw new Error('Input must be a number');
+}
+
+var nummPart = Math.floor(nilai);
+var pointPart = Math.round((nilai % 1) * 100); // Extract cents and round to avoid floating-point precision issues
+
+var M = wordNumber(nummPart);
+
+if (pointPart > 0) {
+M += ' point ' + wordNumber(pointPart);
+}
+
+var input= M.toString().replace(/\s+/g, ' ').trim();
+
+return input
+}
