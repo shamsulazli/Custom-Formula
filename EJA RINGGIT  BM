@@ -1,0 +1,18 @@
+//EJA RINGGIT  BM
+function ringgit(nilai) {
+if (typeof nilai !== 'number') {
+throw new Error('Input must be a number');
+}
+
+var ringgitPart = Math.floor(nilai);
+var senPart = Math.round((nilai % 1) * 100); // Extract cents and round to avoid floating-point precision issues
+
+var M = 'Ringgit Malaysia ' + hurufAngka(ringgitPart);
+
+if (senPart > 0) {
+(M += ' dan ' + hurufAngka(senPart) + ' Sen').replace(/\s+/g, ' ').trim();
+
+}
+var input = (M + ' Sahaja').toString().replace(/\s+/g, ' ').trim();
+return input
+}
