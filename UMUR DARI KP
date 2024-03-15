@@ -1,0 +1,27 @@
+//UMUR DARI KP
+function umurkp(val) {
+const datePart = val.substr(0, 6);
+if (!/^\d{6}$/.test(datePart)) {
+return 'Invalid input';
+}
+
+const yearPrefix = parseInt(datePart.substr(0, 2), 10) < 35 ? 2000 : 1900;
+const year = parseInt(datePart.substr(0, 2), 10) + yearPrefix;
+const month = parseInt(datePart.substr(2, 2), 10) - 1; // Months are zero-based
+const day = parseInt(datePart.substr(4, 2), 10);
+
+const extractedDate = new Date(year, month, day);
+
+var startDate = new Date(extractedDate);
+var currentDate = new Date();
+var yearDifference = currentDate.getFullYear() - startDate.getFullYear();
+if (
+currentDate.getMonth() < startDate.getMonth() ||
+(currentDate.getMonth() === startDate.getMonth() &&
+currentDate.getDate() < startDate.getDate())
+) {
+yearDifference--;
+}
+return yearDifference;
+}
+
