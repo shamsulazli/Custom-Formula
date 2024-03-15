@@ -1,0 +1,24 @@
+//JANA WHATSAPP LINK
+function whatsapp(phone) {
+// Ensure the phone number is a string
+if (typeof phone !== 'string') {
+phone = phone.toString().replace(/[\s\-\+\*]/g, "");
+}
+
+// Check if the phone number starts with "60" (country code for Malaysia)
+if (phone.substring(0, 2) === "60") {
+return "https://wa.me/" + phone; // Already formatted for WhatsApp
+} else if (phone.substring(0, 1) === "0") {
+// If the phone number starts with "0", replace it with "60"
+var newphone = "60" + phone.substring(1);
+return "https://wa.me/" + newphone; // Return the WhatsApp URL
+} else if (phone !== "") {
+// If the phone number is not empty, prepend "60" to it
+var newphone = "60" + phone;
+return "https://wa.me/" + newphone; // Return the WhatsApp URL
+} else {
+// If the phone number is empty, return a WhatsApp URL with an empty phone number
+return "https://wa.me/";
+}
+}
+
