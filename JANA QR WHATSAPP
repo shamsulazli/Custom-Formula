@@ -1,0 +1,23 @@
+
+//JANA QR WHATSAPP
+function qrwasap(phone) {
+// Ensure the phone number is a string
+if (typeof phone !== 'string') {
+phone = phone.toString().replace(/[\s\-\+\*]/g, "");
+}
+// Check if the phone number starts with "60" (country code for Malaysia)
+if (phone.substring(0, 2) === "60") {
+return 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://wa.me/' + phone;
+} else if (phone.substring(0, 1) === "0") {
+// If the phone number starts with "0", replace it with "60"
+var newphone = "60" + phone.substring(1);
+return 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://wa.me/' + newphone;
+} else if (phone !== "") {
+// If the phone number is not empty, prepend "60" to it
+var newphone = "60" + phone;
+return 'https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://wa.me/' + newphone;
+} else {
+// If the phone number is empty, return an empty string
+return "";
+}
+}
