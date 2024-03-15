@@ -1,0 +1,19 @@
+//EJA ANGKA BM
+function ejaAngka(nilai) {
+if (typeof nilai !== 'number') {
+throw new Error('Input must be a number');
+}
+
+var nomborPart = Math.floor(nilai);
+var perpuluhanPart = Math.round((nilai % 1) * 100); // Extract cents and round to avoid floating-point precision issues
+
+var M = hurufAngka(nomborPart);
+
+if (perpuluhanPart > 0) {
+M += ' perpuluhan ' + (hurufAngka(perpuluhanPart).replace(' Puluh', ""));
+}
+
+var input=  M.toString().replace(/\s+/g, ' ').trim();
+
+return input
+}
