@@ -1,0 +1,20 @@
+//TARIKH LAHIR DARI KP
+function tarikhLahir(icNumber) {
+const datePart = icNumber.substr(0, 6);
+if (!/^\d{6}$/.test(datePart)) {
+return 'Invalid input';
+}
+
+const yearPrefix = parseInt(datePart.substr(0, 2), 10) < 30 ? 2000 : 1900;
+const year = parseInt(datePart.substr(0, 2), 10) + yearPrefix;
+const month = parseInt(datePart.substr(2, 2), 10) - 1; // Months are zero-based
+const day = parseInt(datePart.substr(4, 2), 10);
+
+const extractedDate = new Date(year, month, day);
+
+if (isNaN(extractedDate.getTime())) {
+return 'Invalid date';
+}
+
+return extractedDate;
+}
