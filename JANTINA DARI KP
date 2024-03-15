@@ -1,0 +1,13 @@
+//JANTINA DARI KP
+function jantina(icNumber) {
+const lastDigit = icNumber.substr(-1);
+if (!/^\d$/.test(lastDigit)) {
+return 'Invalid input';
+}
+
+const lastDigitNumber = Number(lastDigit);
+if (lastDigitNumber % 2 === 1) {
+return 'LELAKI';
+} else {
+return 'PEREMPUAN';
+}}
