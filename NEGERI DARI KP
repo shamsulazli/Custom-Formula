@@ -1,0 +1,40 @@
+//NEGERI DARI KP
+function negerikp(icNumber) {
+// Remove non-numeric characters from the IC number
+const numericIC = icNumber.replace(/\D/g, '');
+// Check if the IC number has a valid length
+if (numericIC.length !== 12) {
+throw new Error('Invalid IC number. Please provide a valid 12-digit IC number.');
+}
+// Extract the state code from the IC number
+const stateCode = numericIC.substring(6, 8);
+// Define the state codes
+const stateCodes = {
+01': 'JOHOR','21': 'JOHOR','22': 'JOHOR','23': 'JOHOR','24': 'JOHOR',
+02': 'KEDAH','25': 'KEDAH','26': 'KEDAH','27': 'KEDAH',
+03': 'KELANTAN','28': 'KELANTAN','29': 'KELANTAN',
+04': 'MELAKA','30': 'MELAKA',
+05': 'NEGERI SEMBILAN','31': 'NEGERI SEMBILAN','59': 'NEGERI SEMBILAN',
+06': 'PAHANG','32': 'PAHANG','33': 'PAHANG',
+07': 'PULAU PINANG','34': 'PULAU PINANG','35': 'PULAU PINANG',
+08': 'PERAK','36': 'PERAK','37': 'PERAK','38': 'PERAK','39': 'PERAK',
+09': 'PERLIS','40': 'PERLIS',
+10': 'SELANGOR','41': 'SELANGOR','42': 'SELANGOR','43': 'SELANGOR','44': 'SELANGOR',
+11': 'TERENGGANU','45': 'TERENGGANU','46': 'TERENGGANU',
+12': 'SABAH','47': 'SABAH','48': 'SABAH','49': 'SABAH',
+13': 'SARAWAK','50': 'SARAWAK','51': 'SARAWAK','52': 'SARAWAK','53': 'SARAWAK',
+14': 'KUALA LUMPUR','54': 'KUALA LUMPUR','55': 'KUALA LUMPUR','56': 'KUALA LUMPUR','57': 'KUALA LUMPUR',
+15': 'LABUAN','58': 'LABUAN',
+16': 'PUTRAJAYA',
+60': 'BRUNAI',
+61': 'INDONESIA',
+66': 'SINGAPURA',
+67': 'THAILAND',
+75': 'INDIA',
+82': 'UNKNOWN',
+85': 'AFRIKA',
+87': 'BRITAIN'
+};
+// Return the state name based on the state code
+return stateCodes[stateCode] || 'Unknown';
+}
